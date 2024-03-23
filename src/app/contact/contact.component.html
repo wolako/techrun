@@ -1,0 +1,50 @@
+<div class="banner">
+    <div class="container">
+        <div class="align-center">
+            <div class="service-title">
+                <h3>Contactez-Nous</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-form">
+    <div class="container">
+        <div class="row">
+            <div class="text-contact col-md-8 offset-md-2">
+                <h3 class="text-center">Transformez votre Entreprise avec Nous</h3>
+                <p class="text-center">
+                    Que ce soit pour des solutions IT, d'installation d'infrastructure IT, du développement de site web ou d'application mobile ou des conseils technologiques, 
+                    nous sommes là pour faire de votre vision une réalité.
+                </p>
+            </div>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" formControlName="nom">
+
+                <label for="phone">Téléphone :</label>
+                <input type="tel" id="phone" formControlName="phone">
+
+                <label for="email">E-mail :</label>
+                <input type="email" id="email" formControlName="email">
+
+                <label for="message">Message :</label>
+                <textarea id="message" formControlName="message"></textarea>
+                
+                <button [disabled]="contactForm.invalid" [ngStyle]="{ 'background-color': contactForm.valid ? '#4CAF50' : '#888'}">Envoyer</button>
+
+                <div *ngIf="successMessage" class="success-message">
+                    {{ successMessage }}
+                </div>
+                  
+                  <div *ngIf="errorMessage" class="error-message">
+                    {{ errorMessage }}
+                </div>
+            </form>
+            <!-- <div class="container">
+                <div class="row">
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
